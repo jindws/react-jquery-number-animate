@@ -17,3 +17,8 @@ import Rnum from 'react-jquery-number-animate'
   format:true,//是否本地化数字(1000->1,000)
 }} />
 ```
+
+> could add className
+`<Rnum className='myclassName'/>`
+
+`<Rnum className={'myclassName'}/>`

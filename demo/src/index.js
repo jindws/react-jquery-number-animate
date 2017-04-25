@@ -16,7 +16,7 @@ class Demo extends Component {
   render() {
     return (
       <section>
-      <Rnum sets={{
+      <Rnum className={'myclass'} sets={{
           start:100,
           end:this.state.end,
           duration:1000,

@@ -58,17 +58,17 @@ export default class Main extends Component {
   }
 
   render() {
-    return <span>{this.state.num}</span>
+    return <span className={this.props.className}>{this.state.num}</span>
   }
 }
 
 Component.propTypes = {
-  aa:PropTypes.number,
   sets: PropTypes.shape({
     start:PropTypes.number,
     duration:PropTypes.number,
     end:PropTypes.number,
     easing:PropTypes.oneOf(['easing', 'linear']),
     format:PropTypes.bool,
-  })
+  }),
+  className:PropTypes.string
 }
