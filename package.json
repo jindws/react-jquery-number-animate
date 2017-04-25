@@ -1,0 +1,17 @@
+{
+  "name": "react-jquery-number-animate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "nwb build-react-component",
+    "test":  "nwb build-react-component",
+    "start": "nwb serve-react-demo"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "nwb": "^0.15.6",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
