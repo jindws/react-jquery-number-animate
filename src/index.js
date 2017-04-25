@@ -42,7 +42,6 @@ export default class Main extends Component{
         step:re=>{
           const nu = Math.ceil(re);
           const num = format?this.format_number(nu):nu;
-          debugger;
           this.setState({
             start:re,
             num,
