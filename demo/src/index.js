@@ -9,7 +9,7 @@ class Demo extends Component {
     super();
     this.state = {
       show: true,
-      end:1000,
+      end:299,
     }
   }
 
@@ -22,9 +22,9 @@ class Demo extends Component {
           duration:1000,
           easing:'linear',
           format:true,
-        }} />
+        }}/>
       <button onClick={()=>this.setState(prevState=>({
-          end:prevState.end+5000,
+          end:prevState.end+2000,
         }))}>ADD</button>
         <button onClick={()=>this.setState(prevState=>({
             end:prevState.end-1000,

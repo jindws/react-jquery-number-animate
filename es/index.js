@@ -5,7 +5,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 
 var Main = function (_Component) {
@@ -39,13 +39,15 @@ var Main = function (_Component) {
   };
 
   Main.prototype.format_number = function format_number(n) {
-    var b = parseInt(n).toString();
+    var zhengshu = n >= 0;
+    var b = Math.abs(~~n).toString();
     var len = b.length;
     if (len <= 3) {
-      return b;
+      return ~~n;
     }
     var r = len % 3;
-    return r > 0 ? b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : b.slice(r, len).match(/\d{3}/g).join(",");
+    var result = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",");
+    return zhengshu ? result : '-' + result;
   };
 
   Main.prototype.animate = function animate() {
@@ -59,19 +61,17 @@ var Main = function (_Component) {
         _props$sets$format = _props$sets.format,
         format = _props$sets$format === undefined ? false : _props$sets$format;
 
-    $(this).attr('nums', this.state.start || 0).animate({
-      nums: this.state.end || start
+    var start = this.state.start || 0;
+    var end = this.state.end === 0 ? 0 : this.state.end || start;
+    $(this).attr('nums', start).animate({
+      nums: end
     }, {
       duration: duration,
       easing: easing,
       step: function step(re) {
         var nu = Math.ceil(re);
         var num = format ? _this3.format_number(nu) : nu;
-        debugger;
-        _this3.setState({
-          start: re,
-          num: num
-        });
+        _this3.setState({ start: re, num: num });
       }
     });
   };
@@ -88,3 +88,15 @@ var Main = function (_Component) {
 }(Component);
 
 export { Main as default };
+
+
+Component.propTypes = {
+  aa: PropTypes.number,
+  sets: PropTypes.shape({
+    start: PropTypes.number,
+    duration: PropTypes.number,
+    end: PropTypes.number,
+    easing: PropTypes.oneOf(['easing', 'linear']),
+    format: PropTypes.bool
+  })
+};
