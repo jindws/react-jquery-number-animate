@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "nwb build-react-component",
-    "test":  "nwb build-react-component",
+    "test": "nwb build-react-component",
     "start": "nwb serve-react-demo"
   },
   "dependencies": {
@@ -13,5 +13,7 @@
     "nwb": "^0.15.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
-  }
+  },
+  "repository": "git@github.com:moiamoia/react-jquery-number-animate.git",
+  "author": "jindw <jindaweihd@163.com>"
 }
