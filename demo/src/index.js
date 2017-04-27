@@ -24,7 +24,8 @@ class Demo extends Component {
           format:true,
         }}/>
         <Rnum sets={{
-            start:12345,
+            start:0,
+            end:1000
           }}/>
       <button onClick={()=>this.setState(prevState=>({
           end:prevState.end+2000,

@@ -1,14 +1,3 @@
-// import React from 'react'
-//
-// export default React.createClass({
-//   render() {
-//     return <div>
-//       <h2>Welcome to React components</h2>
-//     </div>
-//   }
-// })
-
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -30,9 +19,10 @@ export default class Main extends Component {
   }
 
   componentWillReceiveProps(newprop) {
-    this.setState({
-      end: newprop.sets.end
-    }, () => this.animate());
+      if(newprop.sets.end === this.state.end)return;
+      this.setState(prevState=>({
+        end:newprop.sets.end
+      }),() => this.animate())
   }
 
   format_number(n) {
