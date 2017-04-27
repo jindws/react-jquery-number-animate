@@ -1,16 +1,30 @@
-# react-jquery-number-animate
+[![Build Status](https://travis-ci.org/moiamoia/react-jquery-number-animate.svg?branch=master)](https://travis-ci.org/moiamoia/react-jquery-number-animate)
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+### install
 
-Describe react-jquery-number-animate here.
+```
+  yarn add react-jquery-number-animate -D
+```
+#### need jquery
+`yarn add jquery`
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+`<script src='XXX/jqury.min.js'></script>`
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+### Use
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+```
+import Rnum from 'react-jquery-number-animate'
+<Rnum sets={{
+  start:100,//起点,选填,默认0
+  end:1000,//终点,默认为start的值
+  duration:1000,//动画时长,默认1000ms
+  easing:'linear',//可选,easing或linear,默认easing或linear
+  format:true,//是否本地化数字(1000->1,000)
+}} />
+```
+
+> could add className
+
+`<Rnum className='myclassName'/>`
+
+`<Rnum className={'myclassName'}/>`
