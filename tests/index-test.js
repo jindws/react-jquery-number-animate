@@ -1,10 +1,10 @@
 import expect from 'expect'
+import assert from 'assert'
+
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
-
-import Component from 'src/'
-
-describe('Component', () => {
+import Rnum from '../src'
+describe('Rnum Test', () => {
   let node
 
   beforeEach(() => {
@@ -15,9 +15,11 @@ describe('Component', () => {
     unmountComponentAtNode(node)
   })
 
-  it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
+  it('TEST START', () => {
+    render(<Rnum sets={{
+        start:12345,
+      }}/>, node, () => {
+        assert.equal(node.innerText, '12345');
     })
   })
 })
