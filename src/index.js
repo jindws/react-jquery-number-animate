@@ -33,7 +33,10 @@ export default class Main extends Component {
       return ~~n;
     }
     const r = len % 3;
-    const result = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",");
+    let result = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",");
+    if(result.startsWith(',')){
+      result = result.substring(1);
+    }
     return zhengshu?result:`-${result}`;
   }
 

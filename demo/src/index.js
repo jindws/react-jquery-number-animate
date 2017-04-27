@@ -16,16 +16,17 @@ class Demo extends Component {
   render() {
     return (
       <section>
-      <Rnum className={'myclass'} sets={{
+      {/* <Rnum className={'myclass'} sets={{
           start:100,
           end:this.state.end,
           duration:1000,
           easing:'linear',
           format:true,
-        }}/>
+        }}/> */}
         <Rnum sets={{
             start:0,
-            end:1000
+            format:true,
+            end:156438
           }}/>
       <button onClick={()=>this.setState(prevState=>({
           end:prevState.end+2000,
