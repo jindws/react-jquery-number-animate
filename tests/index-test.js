@@ -16,9 +16,7 @@ describe('Rnum Test', () => {
   })
 
   it('TEST START', () => {
-    render(<Rnum sets={{
-        start:12345,
-      }}/>, node, () => {
+    render(<Rnum start={12345}/>, node, () => {
         assert.equal(node.innerText, '12345');
     })
   })
