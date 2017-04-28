@@ -19,12 +19,8 @@ import Rnum from 'react-jquery-number-animate'
   end:1000,//终点,默认为start的值
   duration:1000,//动画时长,默认1000ms
   easing:'linear',//可选,easing或linear,默认easing或linear
-  format:true,//是否本地化数字(1000->1,000)
+  format:true,//是否本地化数字(1000->1,000),
+  dot:2,//默认0,保留小数,暂会被format覆盖
+  lazy:true,//默认false,懒加载
 }} />
 ```
-
-> could add className
-
-`<Rnum className='myclassName'/>`
-
-`<Rnum className={'myclassName'}/>`
