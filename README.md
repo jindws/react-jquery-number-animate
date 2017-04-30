@@ -22,7 +22,7 @@ import Rnum from 'react-jquery-number-animate'
 />
 ```
 
-## #2.1添加 自定义标签
+## #2.1添加 自定义 type
 ```
 {/* <div>2017</div> */}
 <Rnum
