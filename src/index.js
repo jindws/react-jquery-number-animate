@@ -5,18 +5,24 @@ const $ = typeof($) === 'undefined'
   ? require('jquery')
   : $;
 
-export default class Main extends Component {
+class Main extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
-    // const sets = props.sets||{};
+
+    let end;
+    debugger;
+
+    if(typeof this.props.children === 'string'){
+      end = +this.props.children;
+    }else if(typeof (this.props.children&&this.props.children.props.children)==='string'){
+      end = +this.props.children.props.children;
+    }
+    debugger;
     this.state = {
       num: '-',
-      // start: sets.start,
-      // end: sets.end,
-      // lazy:sets.lazy
       start: props.start,
-      end: props.end,
+      end: props.end||end,
+      // end:props.end||(typeof (this.props.children&&+this.props.children.props.children)==='number'?+this.props.children.props.children:null),
       lazy: props.lazy
     }
     this.scroll = this.scroll.bind(this);
@@ -51,6 +57,7 @@ export default class Main extends Component {
   }
 
   componentWillReceiveProps(newprop) {
+    console.log(6,newprop)
     if (newprop.end === this.state.end || this.state.lazy)
       return;
     this.setState(prevState => ({end: newprop.end}), () => this.animate())
@@ -74,7 +81,6 @@ export default class Main extends Component {
   }
 
   animate() {
-    // const sets = this.props.sets || {};
     const {
       duration = 1000,
       easing = 'swing',
@@ -110,9 +116,16 @@ export default class Main extends Component {
   }
 
   render() {
-    return <span ref='rnum' id={this.props.id} className={this.props.className}>{this.state.num}</span>
+    const type = this.props.children&&this.props.children.type||'span'
+    // console.log(typeof (this.props.children&&+this.props.children.props.children))
+    const re = {type}
+    return <re.type ref='rnum' id={this.props.id} className={this.props.className}>{this.state.num}</re.type>
+    // return <span ref='rnum' id={this.props.id} className={this.props.className}>{this.state.num}</span>
   }
 }
+
+
+export default Main;
 
 Component.propTypes = {
   className: PropTypes.string,

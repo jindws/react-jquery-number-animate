@@ -6,7 +6,7 @@
 `<script src='XXX/jqury.min.js'></script>`
 
 
-## #2.0 USE
+## #2.X USE
 `yarn add react-jquery-number-animate`
 
 ```
@@ -20,6 +20,28 @@ import Rnum from 'react-jquery-number-animate'
   dot={2},//默认0保留小数,暂会被format覆盖
   lazy={true}//默认false,懒加载
 />
+```
+
+## #2.1添加 自定义标签
+```
+{/* <div>2017</div> */}
+<Rnum
+  end={2017}//有end,取end的结果
+>
+  <div>2000</div>
+</Rnum>
+```
+```
+{/* <div>2000</div> */}
+<Rnum>
+  <div>2000</div>
+</Rnum>
+```
+```
+{/* <span>1000</span> */}
+<Rnum>
+  1000
+</Rnum>
 ```
 
 

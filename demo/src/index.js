@@ -16,6 +16,19 @@ class Demo extends Component {
   render() {
     return (
       <section>
+        {/* <div>2017</div> */}
+        <Rnum
+          end={2017}//终点,默认为start的值
+        >
+          <div>2000</div>
+      </Rnum>
+
+      {/* <div>2000</div> */}
+      <Rnum
+      ><div>2000</div>
+    </Rnum>
+
+        {/* <span>2017</span> */}
         <Rnum
           start={100}//起点,选填,默认0
           end={2017}//终点,默认为start的值
@@ -24,7 +37,22 @@ class Demo extends Component {
           format={true}//是否本地化数字(1000->1,000),
           dot={2}//默认0,保留小数,暂会被format覆盖
           lazy={true}//默认false,懒加载
-        />
+        >1111
+      </Rnum>
+
+        {/* <span>1111</span> */}
+      <Rnum
+        start={100}//起点,选填,默认0
+        // end={2017}//终点,默认为start的值
+        duration={500}//动画时长,默认1000ms
+        easing={'linear'}//可选,easing或linear,默认easing或linear
+        format={true}//是否本地化数字(1000->1,000),
+        dot={2}//默认0,保留小数,暂会被format覆盖
+        lazy={true}//默认false,懒加载
+      >1111
+
+      {/* <span>1111</span> */}
+    </Rnum>
         <Rnum
           start={100}
           end={this.state.end}
