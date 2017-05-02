@@ -16,19 +16,12 @@ class Demo extends Component {
   render() {
     return (
       <section>
-        {/* <div>2017</div> */}
         <Rnum
-          end={2017}//终点,默认为start的值
-        >
-          <div>2000</div>
-      </Rnum>
+          end={100}
+          >
+            {re => <span>{re}</span>}
+        </Rnum>
 
-      {/* <div>2000</div> */}
-      <Rnum
-      ><div>2000</div>
-    </Rnum>
-
-        {/* <span>2017</span> */}
         <Rnum
           start={100}//起点,选填,默认0
           end={2017}//终点,默认为start的值
@@ -40,8 +33,7 @@ class Demo extends Component {
         >1111
       </Rnum>
 
-        {/* <span>1111</span> */}
-      <Rnum
+      {/* <Rnum
         start={100}//起点,选填,默认0
         // end={2017}//终点,默认为start的值
         duration={500}//动画时长,默认1000ms
@@ -50,8 +42,6 @@ class Demo extends Component {
         dot={2}//默认0,保留小数,暂会被format覆盖
         lazy={true}//默认false,懒加载
       >1111
-
-      {/* <span>1111</span> */}
     </Rnum>
         <Rnum
           start={100}
@@ -60,7 +50,7 @@ class Demo extends Component {
           easing={'linear'}
           format={true}
           lazy={true}
-        />
+        /> */}
       {/* <Rnum className={'myclass'} sets={{
           start:100,
           end:this.state.end,
@@ -68,13 +58,13 @@ class Demo extends Component {
           easing:'linear',
           format:true,
         }}/> */}
-      <button onClick={()=>this.setState(prevState=>({
+      {/* <button onClick={()=>this.setState(prevState=>({
           end:prevState.end+2000,
         }))}>ADD</button>
         <button onClick={()=>this.setState(prevState=>({
             end:prevState.end-1000,
           }))}>subtract</button>
-          <div style={{height:'1000px'}}></div>
+          <div style={{height:'1000px'}}></div> */}
           {/* <Rnum sets={{
               start:0,
               format:true,
@@ -82,12 +72,12 @@ class Demo extends Component {
               dot:1,
               lazy:true,
             }}/> */}
-            <Rnum start={0}
+            {/* <Rnum start={0}
                 format={true}
                 end={156438}
                 dot={1}
                 lazy={true}
-              />
+              /> */}
       </section>
     )
   }

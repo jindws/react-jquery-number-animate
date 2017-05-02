@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+
 const $ = typeof($) === 'undefined'
   ? require('jquery')
   : $;
@@ -8,28 +9,26 @@ const $ = typeof($) === 'undefined'
 class Main extends Component {
   constructor(props) {
     super(props);
-
     let end;
-    debugger;
-
+    // console.log(typeof (this.props.children&&this.props.children.props.children)==='string')
     if(typeof this.props.children === 'string'){
       end = +this.props.children;
-    }else if(typeof (this.props.children&&this.props.children.props.children)==='string'){
+    }else if(typeof (this.props.children&&this.props.children.props&&this.props.children.props.children)==='string'){
       end = +this.props.children.props.children;
     }
-    debugger;
     this.state = {
       num: '-',
       start: props.start,
       end: props.end||end,
       // end:props.end||(typeof (this.props.children&&+this.props.children.props.children)==='number'?+this.props.children.props.children:null),
-      lazy: props.lazy
+      lazy: props.lazy,
+      func:typeof this.props.children === 'function',
     }
     this.scroll = this.scroll.bind(this);
   }
 
   componentDidMount() {
-    if (this.state.lazy) {
+    if (this.state.lazy&&!this.state.func) {
       const debounce = this.debounce(100);
       $(window).scroll(() => debounce(this.scroll)).trigger('scroll')
     } else {
@@ -57,7 +56,6 @@ class Main extends Component {
   }
 
   componentWillReceiveProps(newprop) {
-    console.log(6,newprop)
     if (newprop.end === this.state.end || this.state.lazy)
       return;
     this.setState(prevState => ({end: newprop.end}), () => this.animate())
@@ -119,6 +117,9 @@ class Main extends Component {
     const type = this.props.children&&this.props.children.type||'span'
     // console.log(typeof (this.props.children&&+this.props.children.props.children))
     const re = {type}
+    if(this.state.func){
+        return this.props.children(this.state.num)
+    }
     return <re.type ref='rnum' id={this.props.id} className={this.props.className}>{this.state.num}</re.type>
     // return <span ref='rnum' id={this.props.id} className={this.props.className}>{this.state.num}</span>
   }

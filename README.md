@@ -21,8 +21,19 @@ import Rnum from 'react-jquery-number-animate'
   lazy={true}//默认false,懒加载
 />
 ```
+## v2.2 add
 
-## #2.1添加 自定义 type
+> use your own label,but no lazy
+
+```
+<Rnum
+  end={100}
+  >
+    {re => <p>{re}</p>}
+</Rnum>
+```
+
+## v2.1 add
 ```
 {/* <div>2017</div> */}
 <Rnum
