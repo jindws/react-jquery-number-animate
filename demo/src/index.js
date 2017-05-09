@@ -17,6 +17,13 @@ class Demo extends Component {
     return (
       <section>
         <Rnum
+          // end={this.state.end}
+          >
+            {this.state.end}
+        </Rnum>
+        ---
+
+        <Rnum
           end={100}
           >
             {re => <span>{re}</span>}
@@ -42,7 +49,7 @@ class Demo extends Component {
         dot={2}//默认0,保留小数,暂会被format覆盖
         lazy={true}//默认false,懒加载
       >1111
-    </Rnum>
+    </Rnum>*/}
         <Rnum
           start={100}
           end={this.state.end}
@@ -50,7 +57,7 @@ class Demo extends Component {
           easing={'linear'}
           format={true}
           lazy={true}
-        /> */}
+        />
       {/* <Rnum className={'myclass'} sets={{
           start:100,
           end:this.state.end,
@@ -58,13 +65,13 @@ class Demo extends Component {
           easing:'linear',
           format:true,
         }}/> */}
-      {/* <button onClick={()=>this.setState(prevState=>({
+      <button onClick={()=>this.setState(prevState=>({
           end:prevState.end+2000,
         }))}>ADD</button>
         <button onClick={()=>this.setState(prevState=>({
             end:prevState.end-1000,
           }))}>subtract</button>
-          <div style={{height:'1000px'}}></div> */}
+          <div style={{height:'1000px'}}></div>
           {/* <Rnum sets={{
               start:0,
               format:true,
