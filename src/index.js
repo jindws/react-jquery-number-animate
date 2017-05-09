@@ -60,6 +60,10 @@ class Main extends Component {
     this.setState(prevState => ({end: newprop.end}), () => this.animate())
   }
 
+  componentWillUnmount(){
+    this.animate(false);
+  }
+
   format_number(n) {
     const zhengshu = n >= 0;
     const b = Math.abs(~~ n).toString();
